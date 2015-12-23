@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".app.MainActivity">
+    <item android:id="@+id/action_add_article" android:title="Add Article"
+          android:icon="@drawable/icon_add"
+          android:orderInCategory="100" app:showAsAction="always" />
+
+</menu>
+
+<!-- From: file:/media/buthmathearo/DATA/Projects/Linux/AndroidStudio/Android_ArticleManagement/app/src/main/res/menu/add_article_activity_menu.xml -->

@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".app.MainActivity">
+
+    <item android:id="@+id/action_edit" android:title="Edit"
+          android:icon="@drawable/ic_action_edit"
+          android:orderInCategory="1" app:showAsAction="always" />
+
+    <item android:id="@+id/action_increase_font" android:title="Font +"
+          android:icon="@drawable/ic_add"
+          android:orderInCategory="2" app:showAsAction="always" />
+
+    <item android:id="@+id/action_decrease_font" android:title="Font -"
+          android:icon="@drawable/ic_remove"
+          android:orderInCategory="3" app:showAsAction="always" />
+
+    <item android:id="@+id/action_default_font" android:title="Default Font Size"
+          android:icon="@drawable/ic_dnd_on"
+          android:orderInCategory="4" app:showAsAction="ifRoom" />
+
+</menu>
+<!-- From: file:/media/buthmathearo/DATA/Projects/Linux/AndroidStudio/Android_ArticleManagement/app/src/main/res/menu/article_detail_activity_menu.xml -->

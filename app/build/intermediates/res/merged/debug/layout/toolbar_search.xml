@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#50a253">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical|left"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_action_arrow_left"/>
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="Search..."
+                android:layout_weight="160"
+                android:layout_marginLeft="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                />
+
+            <Button
+                android:id="@+id/btn_search2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_search" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
+<!-- From: file:/media/buthmathearo/DATA/Projects/Linux/AndroidStudio/Android_ArticleManagement/app/src/main/res/layout/toolbar_search.xml -->

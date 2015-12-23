@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.buthmathearo.articlemanagement.app.UserDetailActivity"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_main"
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            card_view:cardElevation="10dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.android.volley.toolbox.NetworkImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:scaleType="centerCrop"
+                        android:padding="5dp"
+                        android:layout_alignParentTop="true"/>
+                    <TextView
+                        android:id="@+id/udetail_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_alignBottom="@+id/imageView1"
+
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:background="@android:drawable/screen_background_dark_transparent"
+
+                        android:text="Unknown" />
+
+                    <!-- -->
+                    <TextView
+                        android:id="@+id/textViewRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_below="@id/udetail_username"
+                        android:text="User Role:"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/udetail_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_alignBaseline="@id/textViewRole"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:textSize="20sp"
+                        android:text="Unknown"/>
+                    <TextView
+                        android:id="@+id/textViewRedate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Registration Date:"
+                        android:layout_below="@id/textViewRole"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/udetail_regdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_alignBaseline="@id/textViewRedate"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:text="Unknown"/>
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/textViewstatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:paddingTop="15dp"
+                        android:gravity="left"
+                        android:text="User Status:"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/udetail_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:padding="5dp"
+                        android:textSize="20sp"
+                        android:text="Unknown"
+                        android:layout_gravity="right"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
+

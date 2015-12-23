@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">DROID NEWS</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+	<string name="title">Hello</string>
+	<string name="article_view_detail">Detail</string>
+	<string name="user_profile_detail">Profile</string>
+	<string name="article_edit">Edit Article</string>
+	<string name="article_add">Add Article</string>
+    <string name="content">
+	    Hello, it is me
+		I was wondering if after all these years you would like to meet
+		To go over everything
+		They say that time is supposed to heal ya, but I are not done much healing
+
+		Hello, can you hear me?
+		I am in California dreaming about who we used to be
+		When we were younger and free
+		I have forgotten how it felt before the world fell at our feet
+
+		There is such a difference between us
+		And a million miles
+
+		Hello from the other side
+		I must have called a thousand times
+		To tell you I am sorry for everything that I have done
+		But when I call you never seem to be home
+
+		Hello from the outside
+		At least I can say that I have tried
+		To tell you I am sorry for breaking your heart
+		But it do not matter, it clearly does not tear you apart
+		Anymore
+
+		Hello, how are you?
+		It is so typical of me to talk about myself, I am sorry
+		I hope that you are well
+		Did you ever make it out of that town where nothing ever happened?
+
+		It is no secret that the both of us
+		Are running out of time
+
+		So hello from the other side
+		I must have called a thousand times
+		To tell you I am sorry for everything that I have done
+		But when I call you never seem to be home
+
+		Hello from the outside
+		At least I can say that I have tried
+		To tell you I am sorry for breaking your heart
+		But it don not matter, it clearly does not tear you apart
+		Anymore, ooooohh
+		Anymore, ooooohh
+		Anymore, ooooohh
+		Anymore, anymore
+
+		Hello from the other side
+		I must have called a thousand times
+		To tell you I am sorry for everything that I have done
+		But when I call you never seem to be home
+
+		Hello from the outside
+		At least I can say that I have tried
+		To tell you I am sorry for breaking your heart
+		But it do not matter, it clearly does not tear you apart
+		Anymore
+	</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_zz">zz</string>
+
+	<!--manith string content-->
+	<!--Data Login from-->
+	<string name="title_activity_login">Login Form</string>
+	<string name="user_name">Username:</string>
+	<string name="user_password_hint">Password</string>
+	<string name="button_login">Login</string>
+	<string name="button_register">Register</string>
+	<string name="user_name_hint">Username | Email</string>
+	<string name="password_hint">Password</string>
+	<string name="check_rememberpwd">Remember me</string>
+	<!--<string name="text_forgetpwd"> <a href="http://www.facebook.com/">Forgot your password?</a></string>-->
+	<!--Close Data Login form-->
+
+	<!--Data Register form-->
+	<string name="title_activity_register">Register Form</string>
+	<string name="username_register_hint">Username</string>
+	<string name="password_register_hint">Password</string>
+	<string name="confirm_password_register_hint">Confirm password</string>
+	<string name="check_gender">Gender:</string>
+	<string name="button_ok">OK</string>
+	<string name="button_cancle">CANCEL</string>
+	<string name="email_register">Email:</string>
+	<string name="email_register_hint">Email</string>
+	<!--Close Data Register form-->
+
+	<!--Data Reset password form-->
+	<string name="title_activity_resetpwd">Forget Your Password</string>
+	<string name="forgotpwd_message">If you have forgot the password you used to login, you can reset or generate a new one.</string>
+	<string name="email_address">What email address did you give us when you created your account?</string>
+	<string name="email_reset_hint">email address</string>
+	<string name="button_reset">OK</string>
+	<string name="password_reset_hint">new password</string>
+	<string name="confirm_password_reset_hint">confirm new password</string>
+
+	<!--close manith string content-->
+
+</resources>

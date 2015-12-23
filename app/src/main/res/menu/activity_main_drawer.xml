@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<group android:checkableBehavior="single">
+        <item android:id="@+id/entertainment" android:icon="@drawable/ic_action_bulb"
+            android:title="Entertainment" />
+        <item android:id="@+id/technoloy" android:icon="@drawable/ic_action_phone"
+            android:title="Technology" />
+        <item android:id="@+id/socieltyandlife" android:icon="@drawable/ic_action_globe"
+            android:title="Society and Life" />
+        <item android:id="@+id/sport" android:icon="@drawable/ic_action_ball"
+            android:title="Sport" />
+        <item android:id="@+id/novel" android:icon="@drawable/ic_action_book"
+            android:title="Novel" />
+    </group>-->
+
+    <item android:title="Account">
+        <menu>
+            <item android:id="@+id/nav_user_profile" android:icon="@drawable/ic_action_user"
+                  android:title="User Profile" />
+
+            <item android:id="@+id/nav_login" android:icon="@drawable/ic_action_user"
+                android:title="Login" />
+            <item android:id="@+id/nav_register" android:icon="@drawable/ic_person_add"
+                android:title="Register" />
+        </menu>
+    </item>
+
+    <item android:title="Communication">
+        <menu>
+            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
+                android:title="Share" />
+            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+    <item android:title="About Us">
+        <menu>
+
+                <item android:id="@+id/nav_developer"
+                      android:title="Developer" />
+        </menu>
+
+    </item>
+
+</menu><!-- From: file:/C:/Users/Public/Project12/app/src/main/res/menu/activity_main_drawer.xml -->

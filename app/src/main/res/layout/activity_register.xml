@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4F9D51"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_main"
+        android:id="@+id/toolbar_main">
+
+    </include>
+    <!--android:paddingLeft="40dp"
+    android:paddingRight="40dp"-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="0dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:fillViewport="true">
+
+        <!--android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/logo_hrd"/>
+
+            <TextView
+                android:text="@string/title_activity_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:textColor="#ffffff"/>
+
+                <EditText
+                    style="@style/editName"
+                    android:id="@+id/username_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="12dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/username_register_hint"
+                    android:background="@drawable/gb_step_input_1box"
+                    android:drawableLeft="@drawable/user_m"
+                    android:textSize="14sp"/>
+
+                <EditText
+                    style="@style/editName"
+                    android:id="@+id/password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/password_register_hint"
+                    android:drawableLeft="@drawable/pwd_m"
+                    android:paddingLeft="15dp"
+                    android:background="@drawable/gb_step_input_1box"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"/>
+
+                <EditText
+                    style="@style/editName"
+                    android:id="@+id/comfirm_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="@string/confirm_password_register_hint"
+                    android:drawableLeft="@drawable/pwd_m"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/gb_step_input_1box"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="15dp"
+                    android:inputType="textPassword"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnOk_register"
+                        style="@style/buttonBasic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="15dp"
+                        android:text="@string/button_ok"/>
+
+                    <Button
+                        android:id="@+id/btnCancle_register"
+                        style="@style/buttonBasic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:text="@string/button_cancle"/>
+                </LinearLayout>
+                </LinearLayout>
+    </ScrollView>
+</LinearLayout>

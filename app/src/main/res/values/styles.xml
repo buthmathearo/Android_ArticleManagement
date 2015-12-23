@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--manith text style-->
+    <style name="buttonBasic">
+        <item name="android:background">@drawable/selector_gb_general_btn_basic</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="editName">
+        <item name="android:background">@drawable/gb_step_input_1box</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="txtSize">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="check_gender">
+        <item name="android:textColor">#A5A5A5</item>
+    </style>
+    <!--close manith text style-->
+</resources>

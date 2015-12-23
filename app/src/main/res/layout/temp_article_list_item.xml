@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_row_bg_hover"
+    >
+
+    <!--<com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imgThumnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/molyka"
+        />-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp" >
+
+
+        <ImageView
+            android:id="@+id/imgThumnail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+
+             /> <!--android:src="@drawable/molyka"-->
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_margin="10dp"
+            android:layout_alignTop="@+id/imgThumnail"
+            android:layout_toRightOf="@+id/imgThumnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Google just released a newer version of Android named Lollipop..." />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:textSize="14sp"
+            android:text="4h ago"/>
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgThumnail"
+            android:layout_toRightOf="@+id/imgThumnail"
+            android:text="19/11/2015"/>
+
+        <LinearLayout
+            android:layout_alignBottom="@+id/imgThumnail"
+            android:layout_toRightOf="@+id/textViewDate"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!-- Edit -->
+            <ImageButton
+                android:src="@drawable/ic_create"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <!-- Delete -->
+            <ImageButton
+                android:src="@drawable/ic_create"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Favorite -->
+            <ImageButton
+                android:src="@drawable/ic_star_outline"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
