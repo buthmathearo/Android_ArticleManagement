@@ -6,4 +6,4 @@
         android:angle="270"
         android:endColor="@color/list_row_hover_end_color"
         android:startColor="@color/list_row_hover_start_color" />
-</shape><!-- From: file:/media/buthmathearo/DATA/Projects/Linux/AndroidStudio/Android_ArticleManagement/app/src/main/res/drawable/list_row_bg_hover.xml -->
+</shape><!-- From: file:/D:/Projects/Windows/Android_Studio/Android_ArticleManagement/app/src/main/res/drawable/list_row_bg_hover.xml -->
