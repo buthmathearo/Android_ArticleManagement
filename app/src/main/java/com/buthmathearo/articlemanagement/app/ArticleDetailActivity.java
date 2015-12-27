@@ -73,6 +73,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         //ImageView imageView = (ImageView) findViewById(R.id.imgThumnail);
         imageView = (NetworkImageView) findViewById(R.id.imageView);
 
+        //Toast.makeText(ArticleDetailActivity.this, "ART_ID: " + getIntent().getStringExtra("ARTICLE_ID"), Toast.LENGTH_SHORT).show();
         getArticleDetail(getIntent().getStringExtra("ARTICLE_ID"));
 
     }

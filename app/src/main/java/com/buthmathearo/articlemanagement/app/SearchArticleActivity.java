@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,6 +23,8 @@ import com.buthmathearo.articlemanagement.R;
 import com.buthmathearo.articlemanagement.adapter.ArticleAdapter;
 import com.buthmathearo.articlemanagement.model.Article;
 import com.buthmathearo.articlemanagement.util.Util;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +33,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
 
 public class SearchArticleActivity extends AppCompatActivity {
     private EditText mEditTextSearch;
@@ -43,9 +50,11 @@ public class SearchArticleActivity extends AppCompatActivity {
     private String keyword;
     private String userId;
     private Toolbar mToolbar;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    //private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SwipyRefreshLayout mSwipyRefreshLayout;
+    private boolean flag = false;
     // Pagination
-    private int rowCount = 2;
+    private int rowCount = 20;
     private int pageCount = 1;
 
     private int totalRecords;
@@ -72,15 +81,34 @@ public class SearchArticleActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //if (requestCode == Util.KEY_EDIT_ARTICLE){
         if (requestCode == Util.KEY_EDIT_ARTICLE){
             // Get Data Back from EditArticleActivity
             if (resultCode == Util.KEY_EDIT_ARTICLE){
                 //Toast.makeText(MainActivity.this, "ID: " + data.getStringExtra("ARTICLE_ID"), Toast.LENGTH_SHORT).show();
                 getArticleDetail(data.getStringExtra("ARTICLE_ID"));
                 Util.showAlertDialog(this, "Succefully edited an article.", true, SweetAlertDialog.SUCCESS_TYPE);
+                flag = true;
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishActivity();
+    }
+
+    // Send Data back to other activity when activity is finished.
+    public void finishActivity() {
+        // Flag: note for Article edited.
+        if (flag) sendDataback();
+        finish();
+    }
+
+    public void sendDataback(){
+        Intent intent = new Intent();
+        intent.putExtra("ARTICLE_ID", getIntent().getStringExtra("ARTICLE_ID"));
+        setResult(Util.KEY_EDIT_ARTICLE, intent);
     }
 
     private void initializeWidget() {
@@ -88,7 +116,8 @@ public class SearchArticleActivity extends AppCompatActivity {
         mToolbar.setNavigationIcon(R.drawable.ic_action_arrow_left);
         mToolbar.setTitle("Search Result");
         mToolbar.setTitleTextColor(Color.WHITE);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_search_swipe_refresh_layout);
+        //mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_search_swipe_refresh_layout);
+        mSwipyRefreshLayout = (SwipyRefreshLayout) findViewById(R.id.activity_search_swipe_refresh_layout);
 
         mEditTextSearch = (EditText) findViewById(R.id.editTextSearch);
         lstView = (ListView) findViewById(R.id.list_view_search_activity);
@@ -106,25 +135,31 @@ public class SearchArticleActivity extends AppCompatActivity {
             }
         });
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mSwipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh() {
-                if (pageCount <= totalPages) {
-                    pageCount++;
-                    showSearchResult();
-                } else {
-                    Toast.makeText(SearchArticleActivity.this, "No more record.", Toast.LENGTH_SHORT).show();
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if(direction == SwipyRefreshLayoutDirection.BOTTOM) {
+                    if (pageCount <= totalPages) {
+                        pageCount++;
+                        showSearchResult();
+                    } else {
+                        Toast.makeText(SearchArticleActivity.this, "No more record.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                mSwipeRefreshLayout.setRefreshing(false);
+                mSwipyRefreshLayout.setRefreshing(false);
             }
         });
 
         lstView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listItemPosition = position;
                 Intent intent = new Intent(SearchArticleActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("ARTICLE_ID", getIntent().getStringExtra("ARTICLE_ID"));
-                startActivity(intent);
+                intent.putExtra("ARTICLE_ID", String.valueOf(articleList.get(position).getId()));
+                intent.putExtra("ROLE", role);
+                intent.putExtra("USER_ID", String.valueOf(articleList.get(position).getUserId()));
+                //startActivity(intent);
+                startActivityForResult(intent, Util.KEY_EDIT_ARTICLE);
             }
         });
 
@@ -134,6 +169,7 @@ public class SearchArticleActivity extends AppCompatActivity {
             lstView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                    listItemPosition = position;
                     final CharSequence[] items = {
                             "Delete", "Edit"
                     };
@@ -154,13 +190,6 @@ public class SearchArticleActivity extends AppCompatActivity {
                                         // Toast.makeText(SearchArticleActivity.this, "You clicked on YES", Toast.LENGTH_SHORT).show();
                                         deleletUserArticle(articleList.get(position).getId()+"", position);
 
-                                    }
-                                });
-                                alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // Write your code here to invoke NO event
-                                        Toast.makeText(SearchArticleActivity.this, "You clicked on NO", Toast.LENGTH_SHORT).show();
-                                        //dialog.cancel();
                                     }
                                 });
                                 alertDialog.show();
@@ -382,6 +411,7 @@ public class SearchArticleActivity extends AppCompatActivity {
 
     /* Get Article Detail by ID */
     public void getArticleDetail(final String articleId) {
+        Toast.makeText(SearchArticleActivity.this, "ART_ID: " + articleId, Toast.LENGTH_SHORT).show();
         String url = Util.baseUrl + "/api/article/hrd_det001";
         JsonObjectRequest jsonObjectRequest;
         try {

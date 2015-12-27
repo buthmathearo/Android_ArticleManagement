@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +32,8 @@ import com.buthmathearo.articlemanagement.adapter.ArticleAdapter;
 import com.buthmathearo.articlemanagement.model.Article;
 import com.buthmathearo.articlemanagement.util.UserLogin;
 import com.buthmathearo.articlemanagement.util.Util;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +43,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
+
+//import android.support.v4.widget.SwipeRefreshLayout;
+
+/*import android.support.v4.widget.SwipeRefreshLayout;*/
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -57,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private LayoutInflater inflater;
     private Toolbar mToolbar;
     private String username;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    //private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SwipyRefreshLayout mSwipeRefreshLayout;
     private SearchView mSearchView;
     private MenuItem mMenuItem;
 
@@ -88,12 +96,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //mToolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(mToolbar);
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
+        mSwipeRefreshLayout = (SwipyRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+       /* mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refreshList();
+            }
+        });*/
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if (direction == SwipyRefreshLayoutDirection.BOTTOM) {
+                    refreshList();
+                }
             }
         });
 
@@ -178,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         boolean b = false;
         // Get menu from Navigation Drawer
         navMenu = navigationView.getMenu();
+        navMenu.findItem(R.id.view_all).setVisible(false);
         if (checkUserLogin()){
             if (role != null){
                 navMenu.findItem(R.id.nav_user_profile).setVisible(true);
@@ -185,6 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navMenu.findItem(R.id.nav_register).setVisible(false);
                 b = true;
                 if (role.equalsIgnoreCase("user")) {
+                    navMenu.findItem(R.id.view_all).setVisible(true);
                     getMenuInflater().inflate(R.menu.activity_main_menu_user, menu);
                     getUserArticles(String.valueOf(userId), String.valueOf(rowCount), String.valueOf(pageCount));
                 } else if (role.equalsIgnoreCase("admin")) {
@@ -338,6 +357,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 myIntent.putExtra(Intent.EXTRA_SUBJECT,"Check out this side");
                 startActivity(Intent.createChooser(myIntent,"Share With:"));
                 break;
+            case R.id.all_article:
+                intent = new Intent(this,ViewAllArticlesActivity.class);
+                intent.putExtra(UserLogin.ROLE,role);
+                startActivity(intent);
         }
 
         //Toast.makeText(this, "Hello " + item.getItemId(), Toast.LENGTH_SHORT).show();
@@ -385,6 +408,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
+
     }
 
     /* Important methods: Check whether User has Login. SharedPref File will be checked

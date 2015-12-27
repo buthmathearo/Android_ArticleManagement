@@ -12,6 +12,7 @@
 
     <ImageView android:layout_width="109dp" android:layout_height="107dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:background="@android:color/transparent"
         android:src="@drawable/logo" android:id="@+id/nav_drawer_profile_pic"
         android:layout_gravity="center_horizontal" />
 

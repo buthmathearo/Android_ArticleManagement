@@ -11,6 +11,15 @@ public class Pagination {
     private int totalPages;
     private int remainOfRecords;
 
+    /* Default Constructor */
+    public Pagination() {
+
+    }
+
+    public Pagination(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
     /* Getter & Setter Methods */
     public int getTotalRecords() {
         return totalRecords;

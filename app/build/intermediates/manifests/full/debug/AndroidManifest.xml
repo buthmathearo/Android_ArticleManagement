@@ -72,6 +72,8 @@
         </activity>
         <activity android:name="com.buthmathearo.articlemanagement.app.SearchArticleActivity" >
         </activity>
+        <activity android:name="com.buthmathearo.articlemanagement.app.ViewAllArticlesActivity" >
+        </activity>
     </application>
 
 </manifest>
