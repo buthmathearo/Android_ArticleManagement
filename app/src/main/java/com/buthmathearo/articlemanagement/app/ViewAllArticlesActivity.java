@@ -154,6 +154,7 @@ public class ViewAllArticlesActivity extends AppCompatActivity {
 
     // Refresh list when user swipe list view
     public void refreshList() {
+        Util.showAlertDialog(this, "Loading...", true, SweetAlertDialog.PROGRESS_TYPE);
         //totalPages++;
         if (pageCount < totalPages) {
             pageCount++;
@@ -169,6 +170,7 @@ public class ViewAllArticlesActivity extends AppCompatActivity {
         //Toast.makeText(MainActivity.this, "TotalRecords: " + totalRecords + ", TotalPages: " + totalPages + ", Cur.Page: " + pageCount, Toast.LENGTH_SHORT).show();
         //Util.showAlertDialog(this, "Pagination Info", "TotalRecords: " + totalRecords + ", TotalPages: " + totalPages + ", Cur.Page: " + pageCount, true, SweetAlertDialog.NORMAL_TYPE);
         Toast.makeText(ViewAllArticlesActivity.this, "Page: " + pageCount, Toast.LENGTH_SHORT).show();
+        Util.hideAlertDialog();
     }
 
     @Override
@@ -233,7 +235,7 @@ public class ViewAllArticlesActivity extends AppCompatActivity {
             userId = mUserLogin.getId();
             role = mUserLogin.getRole();
             username = mUserLogin.getUsername();
-            Toast.makeText(this, "Intent NULL, User ID: " + userId + ", role: " + role  , Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Intent NULL, User ID: " + userId + ", role: " + role  , Toast.LENGTH_SHORT).show();
             return true;
         } else if (getIntent().getExtras() != null) {
             role = getIntent().getExtras().getString(UserLogin.ROLE);
@@ -248,7 +250,7 @@ public class ViewAllArticlesActivity extends AppCompatActivity {
         /*
         "row": "10",
         "pageCount": "1"*/
-        //Util.showAlertDialog(this, "Loading...", false, SweetAlertDialog.PROGRESS_TYPE);
+        Util.showAlertDialog(this, "Loading...", false, SweetAlertDialog.PROGRESS_TYPE);
         String url = baseUrl + "/api/article/hrd_r001";
         JsonObjectRequest jsonObjectRequest;
         JSONObject params;
@@ -305,6 +307,7 @@ public class ViewAllArticlesActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.d(TAG, e.toString());
         }
+        Util.hideAlertDialog();
     }
 
 
